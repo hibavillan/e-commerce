@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+        <button id="back-button">Back to Products</button>
+    </header>
+
+    <main>
+        <section id="product-details">
+            <!-- Product details will be dynamically inserted here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Simple Ecommerce Store</p>
+    </footer>
+
+    <script>
+        function loadProductDetails() {
+            const productData = localStorage.getItem('selectedProduct');
+            if (!productData) {
+                document.getElementById('product-details').innerHTML = '<p>Product not found.</p>';
+                return;
+            }
+            const product = JSON.parse(productData);
+            const detailsSection = document.getElementById('product-details');
+            detailsSection.innerHTML = `
+                <div class="product-item" style="max-width: 400px; margin: auto;">
+                    <img src="${product.image}" alt="${product.name}" style="height: 250px; object-fit: cover;"/>
+                    <h2>${product.name}</h2>
+                    <p><strong>Category:</strong> ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                    <p><strong>Price:</strong> $${product.price}</p>
+                    <p><strong>Description:</strong> ${product.description}</p>
+                </div>
+            `;
+        }
+
+        document.getElementById('back-button').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+</body>
+</html>

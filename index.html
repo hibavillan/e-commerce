@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce Product Listing</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Simple Ecommerce Store</h1>
+    </header>
+
+    <main>
+        <section id="categories">
+            <h2>Product Categories</h2>
+            <div class="category-list">
+                <!-- Categories will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="filters">
+            <h2>Filter Products</h2>
+            <div class="filter-group">
+                <label for="price-min">Min Price:</label>
+                <input type="number" id="price-min" min="0" placeholder="0" />
+            </div>
+            <div class="filter-group">
+                <label for="price-max">Max Price:</label>
+                <input type="number" id="price-max" min="0" placeholder="1000" />
+            </div>
+            <button id="apply-filters">Apply Filters</button>
+            <button id="clear-filters">Clear Filters</button>
+        </section>
+
+        <section id="product-listing">
+            <h2>Products</h2>
+            <div class="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Simple Ecommerce Store</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
